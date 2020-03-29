@@ -6,7 +6,11 @@
 		headerTag: "h3",
 		bodyTag: "section",
 		transitionEffect: "slideLeft",
-		autoFocus: true
+		autoFocus: true,
+		onStepChanged : function (e, cur, prev) {
+			populateOrderSum()
+			console.log("got event")
+		}
 	});
 
 })(jQuery); 
