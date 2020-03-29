@@ -1,3 +1,11 @@
+var qtyitem1 = 0;
+var qtyitem2 = 0;
+var qtyitem3 = 0;
+var qtyitem4 = 0;
+var tp = 0;
+
+
+
 function totalPrice(myform){
 
     //Get selected data  
@@ -35,7 +43,7 @@ function totalPrice(myform){
     if(!isNaN(price4)){
         total += price4;
     }
-      
+    tp = total;
     //print value to  PicExtPrice 
     document.getElementById("TotalPrice").value=total;
   
@@ -54,6 +62,46 @@ function generateBarCode()
     $('#barcode').attr('src', url);
 }
 
+function populateOrderSum(){
+  console.log("got call")
+  if(qtyitem1>0){
+    document.getElementById("item1").innerText="Rice 1Kg";    
+    document.getElementById("item1price").innerText="$10";
+    document.getElementById("item1qty").innerText=qtyitem1;
+    document.getElementById("item1tp").innerText=qtyitem1*10;
+  }
+  if(qtyitem2>0){
+    document.getElementById("item2").innerText="Milk 1l";    
+    document.getElementById("item2price").innerText="$2";
+    document.getElementById("item2qty").innerText=qtyitem2;
+    document.getElementById("item2tp").innerText=qtyitem2*2;
+  }
+  if(qtyitem3>0){
+    document.getElementById("item3").innerText="Brown Bread";    
+    document.getElementById("item3price").innerText="$2";
+    document.getElementById("item3qty").innerText=qtyitem3;
+    document.getElementById("item3tp").innerText=qtyitem3*2;
+  }
+  if(qtyitem4>0){
+    document.getElementById("item4").innerText="Eggs 12pcs";    
+    document.getElementById("item4price").innerText="$5";
+    document.getElementById("item4qty").innerText=qtyitem4;
+    document.getElementById("item4tp").innerText=qtyitem4*5;
+  }
+
+  document.getElementById("subtotal").innerText="$"+tp;
+  var sp = Math.floor(tp/10);
+  document.getElementById("shipping").innerText="$"+sp;
+  
+  tp = tp + sp;
+  document.getElementById("finaltotal").innerText="$"+tp;
+  
+
+
+}
+
+
+
 function productPrice(id1){
 
     var elt = document.getElementById(id1);
@@ -71,6 +119,7 @@ function productPrice(id1){
             var elt = document.getElementById("price1");
             var price = elt.innerText;  
             qty = parseInt(qty);
+            qtyitem1 = qty;
             price = parseInt(price[8]+price[9]);
             var total = qty*price; 
             document.getElementById("ProdPrice1").value=total;
@@ -79,6 +128,7 @@ function productPrice(id1){
             var elt = document.getElementById("price2");
             var price = elt.innerText;
             qty = parseInt(qty);
+            qtyitem2 = qty;
             price = parseInt(price[8]);
             var total = qty*price; 
             document.getElementById("ProdPrice2").value=total;
@@ -87,6 +137,7 @@ function productPrice(id1){
             var elt = document.getElementById("price3");
             var price = elt.innerText;
             qty = parseInt(qty);
+            qtyitem3 = qty;
             price = parseInt(price[8]);
             var total = qty*price; 
             document.getElementById("ProdPrice3").value=total;
@@ -95,6 +146,7 @@ function productPrice(id1){
             var elt = document.getElementById("price4");
             var price = elt.innerText;
             qty = parseInt(qty);
+            qtyitem4 = qty;
             price = parseInt(price[8]);
             var total = qty*price; 
             document.getElementById("ProdPrice4").value=total;
