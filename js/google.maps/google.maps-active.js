@@ -27,34 +27,30 @@ function initMap() {
     attachSecretMessage(origmarker, homeMessage);
 
 
-    map.addListener('center_changed', function() {
-      // 3 seconds after the center of the map has changed, pan back to the
-      // marker.
-      window.setTimeout(function() {
-        map.panTo(mitras);
-      }, 3000);
-    });
+    var markerList = [{msg: 'Odwalls-Fresh Chakki Atta shop', position: {lat: 28.4143431, lng: 77.0654106}},
+                  {msg: 'Garima Dairy', position: {lat: 28.41374808, lng: 77.06579804}},
+                  {msg: 'The Country Store', position: {lat: 28.41423877, lng: 77.06584096}},
+                  {msg: 'Modern Bazaar SS Plaza', position: {lat: 28.42717048, lng: 77.05701113}},
+                  {msg: 'Sodhi General Store', position: {lat: 28.41383773, lng: 77.07190275}}]
+              
 
-    
-    var chakkiaata = {lat: 28.4143431, lng: 77.0654106};
-    var secretMessage = 'Odwalls-Fresh Chakki Atta shop';
+    // var chakkiaata = {lat: 28.4143431, lng: 77.0654106};
+    // var secretMessage = 'Odwalls-Fresh Chakki Atta shop';
 
-    var shopmarker = new google.maps.Marker({
-      position: chakkiaata,
-      map: map,
-      icon: {
-        url: "http://maps.google.com/mapfiles/ms/icons/red-dot.png"
-      }
-    });
-    
-
-    shopmarker.addListener('click', function() {
-      map.setZoom(15.8);
-      map.setCenter(shopmarker.getPosition());
-    });
-  
-    attachSecretMessage(shopmarker, secretMessage);
-
+    for (var i = 0; i < markerList.length; ++i) {
+      var shopmarker = new google.maps.Marker({
+        position: markerList[i].position,
+        map: map,
+        icon: {
+          url: "http://maps.google.com/mapfiles/ms/icons/red-dot.png"
+        }
+      });
+      attachSecretMessage(shopmarker, markerList[i].msg);
+      shopmarker.addListener('click', function() {
+        map.setZoom(15.8);
+        map.setCenter(shopmarker.getPosition());
+      });
+    }
   
 
     // Attaches an info window to a marker with the provided message. When the
@@ -64,9 +60,10 @@ function initMap() {
         content: secretMessage
       });
 
-      shopmarker.addListener('click', function() {
-        infowindow.open(shopmarker.get('map'), shopmarker);
-      });
+      shopmarker.addListener('click', function(){ 
+              infowindow.open(shopmarker.get('map'), shopmarker);
+              setTimeout(function(){infowindow.close(); map.panTo(mitras);}, '4000');
+            });
     }
 		
 		
