@@ -1067,18 +1067,90 @@
                                     <h3 class="product-cart-dn">Shopping</h3>
                                     <div class="delivery-details">
                                         <h3>Please select your preferred delivery option</h3>
-                                        <select id="hello-single" class="form-control" onchange="showDeliveryOption(this.id);">
-                                                <option value="">---- Select Delivery Time ----</option>
-                                                <option value="0">Self Pickup</option>
-                                                <option value="1" disabled="true" >10am-12pm</option>
-                                                <option value="2" disabled="true">2pm-4pm</option>
-                                                <option value="3" >6pm-8pm</option>
-                                                <option value="4" >After 10pm</option>
-                                        </select>
+
+                                        <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+                                        <script>
+                                        $(document).ready(function(){
+                                            $('input[type="radio"]').click(function(){
+                                                var inputValue = $(this).attr("value");
+                                                var targetBox = $("." + inputValue);
+                                                $(".box").not(targetBox).hide();
+                                                $(targetBox).show();
+                                            });
+                                        });
+                                        </script>
+                                        
+                                            <div>
+                                                <label><input type="radio" name="colorRadio" value="red" checked> Delivery</label>
+                                                <label><input type="radio" name="colorRadio" value="green"> Self PickUp</label>
+                                            </div>
+                                            <div class="red box">
+                                                <select id="delivery" class="form-control" onchange="showDeliveryOption(this.id);">
+                                                <option value="">---- Select Delivery Time ----</option>                                                
+                                                <option value="0" disabled="true" >10am-2pm</option>
+                                                <option value="1" disabled="true">2pm-6pm</option>
+                                                <option value="2" >6pm-10pm</option>
+                                            </select>
+                                            </div>
+                                            
+                                            <div class="green box">
+                                                <select id="PickUp" class="form-control" onchange="showPickUpOption(this.id);">
+                                                <option value="">---- Select PickUp Time ----</option>
+                                                <option value="0" >08:00 - 08:15</option>
+                                                <option value="1" disabled="true">08:15 - 08:30</option>
+                                                <option value="2" disabled="true">08:30 - 08:45</option>
+                                                <option value="3" disabled="true">08:45 - 09:00</option>
+                                                <option value="4" disabled="true">09:00 - 09:15</option>
+                                                <option value="5">09:15 - 09:30</option>
+                                                <option value="6">09:30 - 09:45</option>
+                                                <option value="7">09:45 - 10:00</option>
+                                                <option value="8" disabled="true">10:00 - 10:15</option>
+                                                <option value="9" disabled="true">10:15 - 10:30</option>
+                                                <option value="10">10:30 - 10:45</option>
+                                                <option value="11">10:45 - 11:00</option>
+                                                <option value="12" disabled="true">11:00 - 11:15</option>
+                                                <option value="13">11:15 - 11:30</option>
+                                                <option value="14">11:30 - 11:45</option>
+                                                <option value="15" disabled="true">11:45 - 12:00</option>
+                                                <option value="16" disabled="true">12:00 - 12:15</option>
+                                                <option value="17" disabled="true">12:15 - 12:30</option>
+                                                <option value="18">12:30 - 12:45</option>
+                                                <option value="19">12:45 - 13:00</option>
+                                                <option value="20">13:00 - 13:15</option>
+                                                <option value="21" disabled="true">13:15 - 13:30</option>
+                                                <option value="22" disabled="true">13:30 - 13:45</option>
+                                                <option value="23">13:45 - 14:00</option>
+                                                <option value="24">14:00 - 14:15</option>
+                                                <option value="25">14:15 - 14:30</option>
+                                                <option value="26">14:30 - 14:45</option>
+                                                <option value="27">14:45 - 15:00</option>
+                                                <option value="28">15:00 - 15:15</option>
+                                                <option value="29">15:15 - 15:30</option>
+                                                <option value="30">15:30 - 15:45</option>
+                                                <option value="31">15:45 - 16:00</option>
+                                                <option value="32" disabled="true">16:00 - 16:15</option>
+                                                <option value="33" disabled="true">16:15 - 16:30</option>
+                                                <option value="34">16:30 - 16:45</option>
+                                                <option value="35" disabled="true">16:45 - 17:00</option>
+                                                <option value="36">17:00 - 17:15</option>
+                                                <option value="37">17:15 - 17:30</option>
+                                                <option value="38">17:30 - 17:45</option>
+                                                <option value="39">17:45 - 18:00</option>
+                                                <option value="40">18:00 - 18:15</option>
+                                                <option value="41" disabled="true">18:15 - 18:30</option>
+                                                <option value="42" disabled="true">18:30 - 18:45</option>
+                                                <option value="43" disabled="true">18:45 - 19:00</option>
+                                                <option value="44" disabled="true">19:00 - 19:15</option>
+                                                <option value="45">19:15 - 19:30</option>
+                                                <option value="46">19:30 - 19:45</option>
+                                                <option value="47">19:45 - 20:00</option>
+                                                </select>
+                                            </div>
+                                             
                                         
                                         <h4><output type="number" id="delopt" Size=8></output></h4>
                                         
-                                        <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                                        
                                     </div>
                                 </section>
                                 <h3>Payment Details</h3>
@@ -1164,7 +1236,7 @@
                                             <label for="promotional-code" class="control-label">Promotional code</label>
                                             <input id="promotional-code" class="form-control" type="text" name="promotional_code">
                                         </div>
-                                        <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                                        
                                     </div>
                                 </section>
                                 <h3>Confirmation</h3>

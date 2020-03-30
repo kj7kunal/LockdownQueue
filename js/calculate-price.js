@@ -3,8 +3,8 @@ var qtyitem2 = 0;
 var qtyitem3 = 0;
 var qtyitem4 = 0;
 var tp = 0;
-var deliveryslot = -1;
-
+var slot = -1;
+var delivery = 1;
 
 function totalPrice(myform){
 
@@ -67,24 +67,172 @@ function populateConfirmationMsg(){
   // document.getElementById("confirmMsg").value="Please come to your selected store at 6pm 31st March 2020. The QR code will be valid for only 10 minutes.";
   console.log("populateConfirmationMsg");
   // document.getElementById("confirmMsg").value=deliveryslot;
-  switch(deliveryslot){
-    case 0:
-      document.getElementById("confirmMsg").value="Please come to your selected store at 6pm 31st March 2020. The QR code will be valid for only 10 minutes.";
+  
+  if(delivery){
+    switch(slot){
+      case 0:
+        document.getElementById("confirmMsg").value="Your order will be delivered to you between 10am and 2pm on 31st March";
+        break;
+      case 1:
+        document.getElementById("confirmMsg").value="Your order will be delivered to you between 2pm and 6pm on 31st March";
+        break;
+      case 2:
+        document.getElementById("confirmMsg").value="Your order will be delivered to you between 6pm and 10pm on 31st March";
+        break;
+      default:
+    }
+  }else{
+
+    switch(slot){
+      case 0:
+      document.getElementById("confirmMsg").value="Please come to your selected store on 31st March 2020, at 08:00 for pickup. The QR code will be valid for only 15 minutes";
       break;
-    case 1:
-      document.getElementById("confirmMsg").value="Your order will be delivered to you by 12pm on 31st March";
+      case 1:
+      document.getElementById("confirmMsg").value="Please come to your selected store on 31st March 2020, at 08:15 for pickup. The QR code will be valid for only 15 minutes";
       break;
-    case 2:
-      document.getElementById("confirmMsg").value="Your order will be delivered to you by 4pm on 31st March";
+      case 2:
+      document.getElementById("confirmMsg").value="Please come to your selected store on 31st March 2020, at 08:30 for pickup. The QR code will be valid for only 15 minutes";
       break;
-    case 3:
-      document.getElementById("confirmMsg").value="Your order will be delivered to you by 8pm on 31st March";
+      case 3:
+      document.getElementById("confirmMsg").value="Please come to your selected store on 31st March 2020, at 08:45 for pickup. The QR code will be valid for only 15 minutes";
       break;
-    case 4:
-      document.getElementById("confirmMsg").value="Your order will be delivered to you by 11pm on 31st March";
+      case 4:
+      document.getElementById("confirmMsg").value="Please come to your selected store on 31st March 2020, at 09:00 for pickup. The QR code will be valid for only 15 minutes";
       break;
-    default:
-}
+      case 5:
+      document.getElementById("confirmMsg").value="Please come to your selected store on 31st March 2020, at 09:15 for pickup. The QR code will be valid for only 15 minutes";
+      break;
+      case 6:
+      document.getElementById("confirmMsg").value="Please come to your selected store on 31st March 2020, at 09:30 for pickup. The QR code will be valid for only 15 minutes";
+      break;
+      case 7:
+      document.getElementById("confirmMsg").value="Please come to your selected store on 31st March 2020, at 09:45 for pickup. The QR code will be valid for only 15 minutes";
+      break;
+      case 8:
+      document.getElementById("confirmMsg").value="Please come to your selected store on 31st March 2020, at 10:00 for pickup. The QR code will be valid for only 15 minutes";
+      break;
+      case 9:
+      document.getElementById("confirmMsg").value="Please come to your selected store on 31st March 2020, at 10:15 for pickup. The QR code will be valid for only 15 minutes";
+      break;
+      case 10:
+      document.getElementById("confirmMsg").value="Please come to your selected store on 31st March 2020, at 10:30 for pickup. The QR code will be valid for only 15 minutes";
+      break;
+      case 11:
+      document.getElementById("confirmMsg").value="Please come to your selected store on 31st March 2020, at 10:45 for pickup. The QR code will be valid for only 15 minutes";
+      break;
+      case 12:
+      document.getElementById("confirmMsg").value="Please come to your selected store on 31st March 2020, at 11:00 for pickup. The QR code will be valid for only 15 minutes";
+      break;
+      case 13:
+      document.getElementById("confirmMsg").value="Please come to your selected store on 31st March 2020, at 11:15 for pickup. The QR code will be valid for only 15 minutes";
+      break;
+      case 14:
+      document.getElementById("confirmMsg").value="Please come to your selected store on 31st March 2020, at 11:30 for pickup. The QR code will be valid for only 15 minutes";
+      break;
+      case 15:
+      document.getElementById("confirmMsg").value="Please come to your selected store on 31st March 2020, at 11:45 for pickup. The QR code will be valid for only 15 minutes";
+      break;
+      case 16:
+      document.getElementById("confirmMsg").value="Please come to your selected store on 31st March 2020, at 12:00 for pickup. The QR code will be valid for only 15 minutes";
+      break;
+      case 17:
+      document.getElementById("confirmMsg").value="Please come to your selected store on 31st March 2020, at 12:15 for pickup. The QR code will be valid for only 15 minutes";
+      break;
+      case 18:
+      document.getElementById("confirmMsg").value="Please come to your selected store on 31st March 2020, at 12:30 for pickup. The QR code will be valid for only 15 minutes";
+      break;
+      case 19:
+      document.getElementById("confirmMsg").value="Please come to your selected store on 31st March 2020, at 12:45 for pickup. The QR code will be valid for only 15 minutes";
+      break;
+      case 20:
+      document.getElementById("confirmMsg").value="Please come to your selected store on 31st March 2020, at 13:00 for pickup. The QR code will be valid for only 15 minutes";
+      break;
+      case 21:
+      document.getElementById("confirmMsg").value="Please come to your selected store on 31st March 2020, at 13:15 for pickup. The QR code will be valid for only 15 minutes";
+      break;
+      case 22:
+      document.getElementById("confirmMsg").value="Please come to your selected store on 31st March 2020, at 13:30 for pickup. The QR code will be valid for only 15 minutes";
+      break;
+      case 23:
+      document.getElementById("confirmMsg").value="Please come to your selected store on 31st March 2020, at 13:45 for pickup. The QR code will be valid for only 15 minutes";
+      break;
+      case 24:
+      document.getElementById("confirmMsg").value="Please come to your selected store on 31st March 2020, at 14:00 for pickup. The QR code will be valid for only 15 minutes";
+      break;
+      case 25:
+      document.getElementById("confirmMsg").value="Please come to your selected store on 31st March 2020, at 14:15 for pickup. The QR code will be valid for only 15 minutes";
+      break;
+      case 26:
+      document.getElementById("confirmMsg").value="Please come to your selected store on 31st March 2020, at 14:30 for pickup. The QR code will be valid for only 15 minutes";
+      break;
+      case 27:
+      document.getElementById("confirmMsg").value="Please come to your selected store on 31st March 2020, at 14:45 for pickup. The QR code will be valid for only 15 minutes";
+      break;
+      case 28:
+      document.getElementById("confirmMsg").value="Please come to your selected store on 31st March 2020, at 15:00 for pickup. The QR code will be valid for only 15 minutes";
+      break;
+      case 29:
+      document.getElementById("confirmMsg").value="Please come to your selected store on 31st March 2020, at 15:15 for pickup. The QR code will be valid for only 15 minutes";
+      break;
+      case 30:
+      document.getElementById("confirmMsg").value="Please come to your selected store on 31st March 2020, at 15:30 for pickup. The QR code will be valid for only 15 minutes";
+      break;
+      case 31:
+      document.getElementById("confirmMsg").value="Please come to your selected store on 31st March 2020, at 15:45 for pickup. The QR code will be valid for only 15 minutes";
+      break;
+      case 32:
+      document.getElementById("confirmMsg").value="Please come to your selected store on 31st March 2020, at 16:00 for pickup. The QR code will be valid for only 15 minutes";
+      break;
+      case 33:
+      document.getElementById("confirmMsg").value="Please come to your selected store on 31st March 2020, at 16:15 for pickup. The QR code will be valid for only 15 minutes";
+      break;
+      case 34:
+      document.getElementById("confirmMsg").value="Please come to your selected store on 31st March 2020, at 16:30 for pickup. The QR code will be valid for only 15 minutes";
+      break;
+      case 35:
+      document.getElementById("confirmMsg").value="Please come to your selected store on 31st March 2020, at 16:45 for pickup. The QR code will be valid for only 15 minutes";
+      break;
+      case 36:
+      document.getElementById("confirmMsg").value="Please come to your selected store on 31st March 2020, at 17:00 for pickup. The QR code will be valid for only 15 minutes";
+      break;
+      case 37:
+      document.getElementById("confirmMsg").value="Please come to your selected store on 31st March 2020, at 17:15 for pickup. The QR code will be valid for only 15 minutes";
+      break;
+      case 38:
+      document.getElementById("confirmMsg").value="Please come to your selected store on 31st March 2020, at 17:30 for pickup. The QR code will be valid for only 15 minutes";
+      break;
+      case 39:
+      document.getElementById("confirmMsg").value="Please come to your selected store on 31st March 2020, at 17:45 for pickup. The QR code will be valid for only 15 minutes";
+      break;
+      case 40:
+      document.getElementById("confirmMsg").value="Please come to your selected store on 31st March 2020, at 18:00 for pickup. The QR code will be valid for only 15 minutes";
+      break;
+      case 41:
+      document.getElementById("confirmMsg").value="Please come to your selected store on 31st March 2020, at 18:15 for pickup. The QR code will be valid for only 15 minutes";
+      break;
+      case 42:
+      document.getElementById("confirmMsg").value="Please come to your selected store on 31st March 2020, at 18:30 for pickup. The QR code will be valid for only 15 minutes";
+      break;
+      case 43:
+      document.getElementById("confirmMsg").value="Please come to your selected store on 31st March 2020, at 18:45 for pickup. The QR code will be valid for only 15 minutes";
+      break;
+      case 44:
+      document.getElementById("confirmMsg").value="Please come to your selected store on 31st March 2020, at 19:00 for pickup. The QR code will be valid for only 15 minutes";
+      break;
+      case 45:
+      document.getElementById("confirmMsg").value="Please come to your selected store on 31st March 2020, at 19:15 for pickup. The QR code will be valid for only 15 minutes";
+      break;
+      case 46:
+      document.getElementById("confirmMsg").value="Please come to your selected store on 31st March 2020, at 19:30 for pickup. The QR code will be valid for only 15 minutes";
+      break;
+      case 47:
+      document.getElementById("confirmMsg").value="Please come to your selected store on 31st March 2020, at 19:45 for pickup. The QR code will be valid for only 15 minutes";
+      break;
+      default:
+    }
+
+  }
+  
 }
 
 function showDeliveryOption(id){
@@ -94,24 +242,184 @@ function showDeliveryOption(id){
   var elt = document.getElementById(id);
   var memory = elt.options[elt.selectedIndex].value;
   memory = parseInt(memory);
-  deliveryslot = memory;
+  slot = memory;
+  delivery = 1;
 
   switch(memory){
       case 0:
         document.getElementById("delopt").value="You selected Self Pickup. Please proceed to payment";
         break;
       case 1:
-        document.getElementById("delopt").value="You selected 10am-12pm slot. Please proceed to payment";
+        document.getElementById("delopt").value="You selected 10am-2pm slot. Please proceed to payment";
         break;
       case 2:
-        document.getElementById("delopt").value="You selected 2pm-4pm slot. Please proceed to payment";
+        document.getElementById("delopt").value="You selected 2pm-6pm slot. Please proceed to payment";
         break;
       case 3:
-        document.getElementById("delopt").value="You selected 6pm-8pm slot. Please proceed to payment";
+        document.getElementById("delopt").value="You selected 6pm-10pm slot. Please proceed to payment";
         break;
+      default:
+  }
+
+}
+
+function showPickUpOption(id){
+
+  console.log("showDeliveryOption");
+
+  var elt = document.getElementById(id);
+  var memory = elt.options[elt.selectedIndex].value;
+  memory = parseInt(memory);
+  slot = memory;
+
+  delivery = 0;
+
+
+  switch(memory){
+    case 0:
+      document.getElementById("delopt").value="You selected 08:00 to 08:15 for pickup. Please proceed to payment";
+      break;
+      case 1:
+      document.getElementById("delopt").value="You selected 08:15 to 08:30 for pickup. Please proceed to payment";
+      break;
+      case 2:
+      document.getElementById("delopt").value="You selected 08:30 to 08:45 for pickup. Please proceed to payment";
+      break;
+      case 3:
+      document.getElementById("delopt").value="You selected 08:45 to 09:00 for pickup. Please proceed to payment";
+      break;
       case 4:
-        document.getElementById("delopt").value="You selected after 10pm slot. Please proceed to payment";
-        break;
+      document.getElementById("delopt").value="You selected 09:00 to 09:15 for pickup. Please proceed to payment";
+      break;
+      case 5:
+      document.getElementById("delopt").value="You selected 09:15 to 09:30 for pickup. Please proceed to payment";
+      break;
+      case 6:
+      document.getElementById("delopt").value="You selected 09:30 to 09:45 for pickup. Please proceed to payment";
+      break;
+      case 7:
+      document.getElementById("delopt").value="You selected 09:45 to 10:00 for pickup. Please proceed to payment";
+      break;
+      case 8:
+      document.getElementById("delopt").value="You selected 10:00 to 10:15 for pickup. Please proceed to payment";
+      break;
+      case 9:
+      document.getElementById("delopt").value="You selected 10:15 to 10:30 for pickup. Please proceed to payment";
+      break;
+      case 10:
+      document.getElementById("delopt").value="You selected 10:30 to 10:45 for pickup. Please proceed to payment";
+      break;
+      case 11:
+      document.getElementById("delopt").value="You selected 10:45 to 11:00 for pickup. Please proceed to payment";
+      break;
+      case 12:
+      document.getElementById("delopt").value="You selected 11:00 to 11:15 for pickup. Please proceed to payment";
+      break;
+      case 13:
+      document.getElementById("delopt").value="You selected 11:15 to 11:30 for pickup. Please proceed to payment";
+      break;
+      case 14:
+      document.getElementById("delopt").value="You selected 11:30 to 11:45 for pickup. Please proceed to payment";
+      break;
+      case 15:
+      document.getElementById("delopt").value="You selected 11:45 to 12:00 for pickup. Please proceed to payment";
+      break;
+      case 16:
+      document.getElementById("delopt").value="You selected 12:00 to 12:15 for pickup. Please proceed to payment";
+      break;
+      case 17:
+      document.getElementById("delopt").value="You selected 12:15 to 12:30 for pickup. Please proceed to payment";
+      break;
+      case 18:
+      document.getElementById("delopt").value="You selected 12:30 to 12:45 for pickup. Please proceed to payment";
+      break;
+      case 19:
+      document.getElementById("delopt").value="You selected 12:45 to 13:00 for pickup. Please proceed to payment";
+      break;
+      case 20:
+      document.getElementById("delopt").value="You selected 13:00 to 13:15 for pickup. Please proceed to payment";
+      break;
+      case 21:
+      document.getElementById("delopt").value="You selected 13:15 to 13:30 for pickup. Please proceed to payment";
+      break;
+      case 22:
+      document.getElementById("delopt").value="You selected 13:30 to 13:45 for pickup. Please proceed to payment";
+      break;
+      case 23:
+      document.getElementById("delopt").value="You selected 13:45 to 14:00 for pickup. Please proceed to payment";
+      break;
+      case 24:
+      document.getElementById("delopt").value="You selected 14:00 to 14:15 for pickup. Please proceed to payment";
+      break;
+      case 25:
+      document.getElementById("delopt").value="You selected 14:15 to 14:30 for pickup. Please proceed to payment";
+      break;
+      case 26:
+      document.getElementById("delopt").value="You selected 14:30 to 14:45 for pickup. Please proceed to payment";
+      break;
+      case 27:
+      document.getElementById("delopt").value="You selected 14:45 to 15:00 for pickup. Please proceed to payment";
+      break;
+      case 28:
+      document.getElementById("delopt").value="You selected 15:00 to 15:15 for pickup. Please proceed to payment";
+      break;
+      case 29:
+      document.getElementById("delopt").value="You selected 15:15 to 15:30 for pickup. Please proceed to payment";
+      break;
+      case 30:
+      document.getElementById("delopt").value="You selected 15:30 to 15:45 for pickup. Please proceed to payment";
+      break;
+      case 31:
+      document.getElementById("delopt").value="You selected 15:45 to 16:00 for pickup. Please proceed to payment";
+      break;
+      case 32:
+      document.getElementById("delopt").value="You selected 16:00 to 16:15 for pickup. Please proceed to payment";
+      break;
+      case 33:
+      document.getElementById("delopt").value="You selected 16:15 to 16:30 for pickup. Please proceed to payment";
+      break;
+      case 34:
+      document.getElementById("delopt").value="You selected 16:30 to 16:45 for pickup. Please proceed to payment";
+      break;
+      case 35:
+      document.getElementById("delopt").value="You selected 16:45 to 17:00 for pickup. Please proceed to payment";
+      break;
+      case 36:
+      document.getElementById("delopt").value="You selected 17:00 to 17:15 for pickup. Please proceed to payment";
+      break;
+      case 37:
+      document.getElementById("delopt").value="You selected 17:15 to 17:30 for pickup. Please proceed to payment";
+      break;
+      case 38:
+      document.getElementById("delopt").value="You selected 17:30 to 17:45 for pickup. Please proceed to payment";
+      break;
+      case 39:
+      document.getElementById("delopt").value="You selected 17:45 to 18:00 for pickup. Please proceed to payment";
+      break;
+      case 40:
+      document.getElementById("delopt").value="You selected 18:00 to 18:15 for pickup. Please proceed to payment";
+      break;
+      case 41:
+      document.getElementById("delopt").value="You selected 18:15 to 18:30 for pickup. Please proceed to payment";
+      break;
+      case 42:
+      document.getElementById("delopt").value="You selected 18:30 to 18:45 for pickup. Please proceed to payment";
+      break;
+      case 43:
+      document.getElementById("delopt").value="You selected 18:45 to 19:00 for pickup. Please proceed to payment";
+      break;
+      case 44:
+      document.getElementById("delopt").value="You selected 19:00 to 19:15 for pickup. Please proceed to payment";
+      break;
+      case 45:
+      document.getElementById("delopt").value="You selected 19:15 to 19:30 for pickup. Please proceed to payment";
+      break;
+      case 46:
+      document.getElementById("delopt").value="You selected 19:30 to 19:45 for pickup. Please proceed to payment";
+      break;
+      case 47:
+      document.getElementById("delopt").value="You selected 19:45 to 20:00 for pickup. Please proceed to payment";
+      break;
       default:
   }
 
