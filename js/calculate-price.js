@@ -3,7 +3,7 @@ var qtyitem2 = 0;
 var qtyitem3 = 0;
 var qtyitem4 = 0;
 var tp = 0;
-
+var deliveryslot = -1;
 
 
 function totalPrice(myform){
@@ -60,6 +60,120 @@ function generateBarCode()
     var nric = $('#orderno').val();
     var url = 'https://api.qrserver.com/v1/create-qr-code/?data=' + 12345 + '&amp;size=50x50';
     $('#barcode').attr('src', url);
+}
+
+function populateConfirmationMsg(){
+
+  // document.getElementById("confirmMsg").value="Please come to your selected store at 6pm 31st March 2020. The QR code will be valid for only 10 minutes.";
+  console.log("populateConfirmationMsg");
+  // document.getElementById("confirmMsg").value=deliveryslot;
+  switch(deliveryslot){
+    case 0:
+      document.getElementById("confirmMsg").value="Please come to your selected store at 6pm 31st March 2020. The QR code will be valid for only 10 minutes.";
+      break;
+    case 1:
+      document.getElementById("confirmMsg").value="Your order will be delivered to you by 12pm on 31st March";
+      break;
+    case 2:
+      document.getElementById("confirmMsg").value="Your order will be delivered to you by 4pm on 31st March";
+      break;
+    case 3:
+      document.getElementById("confirmMsg").value="Your order will be delivered to you by 8pm on 31st March";
+      break;
+    case 4:
+      document.getElementById("confirmMsg").value="Your order will be delivered to you by 11pm on 31st March";
+      break;
+    default:
+}
+}
+
+function showDeliveryOption(id){
+
+  console.log("showDeliveryOption");
+
+  var elt = document.getElementById(id);
+  var memory = elt.options[elt.selectedIndex].value;
+  memory = parseInt(memory);
+  deliveryslot = memory;
+
+  switch(memory){
+      case 0:
+        document.getElementById("delopt").value="You selected Self Pickup. Please proceed to payment";
+        break;
+      case 1:
+        document.getElementById("delopt").value="You selected 10am-12pm slot. Please proceed to payment";
+        break;
+      case 2:
+        document.getElementById("delopt").value="You selected 2pm-4pm slot. Please proceed to payment";
+        break;
+      case 3:
+        document.getElementById("delopt").value="You selected 6pm-8pm slot. Please proceed to payment";
+        break;
+      case 4:
+        document.getElementById("delopt").value="You selected after 10pm slot. Please proceed to payment";
+        break;
+      default:
+  }
+
+}
+
+function showDialogbox(id){
+  
+  var dialog = document.getElementById('myFirstDialog');
+
+  var elt = document.getElementById(id);
+
+  var stc = parseInt(elt.id[4]);
+
+  
+
+  // qty = parseInt(qty);
+  // price = parseInt(price[8]+price[9]);
+
+  switch(stc) {
+      case 1:
+        console.log("got call 1")
+        if(qtyitem1 == 2){
+          dialog.show();
+        }
+    
+        document.getElementById('hide').onclick = function() {    
+            dialog.close();    
+        };
+        break;
+      case 2:
+        console.log("got call 2")
+        if(qtyitem2 == 2){
+          dialog.show();
+        }
+    
+        document.getElementById('hide').onclick = function() {    
+            dialog.close();    
+        };
+        break;
+      case 3:
+        console.log("got call 3")
+        if(qtyitem3 == 2){
+          dialog.show();
+        }
+    
+        document.getElementById('hide').onclick = function() {    
+            dialog.close();    
+        };
+        break;
+      case 4:
+        console.log("got call 4")
+        if(qtyitem4 == 2){
+          dialog.show();
+        }
+    
+        document.getElementById('hide').onclick = function() {    
+            dialog.close();    
+        };
+        break;
+      default:
+        // code block
+    }
 }
 
 function populateOrderSum(){

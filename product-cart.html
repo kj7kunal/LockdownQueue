@@ -877,53 +877,61 @@
                                                     </td>
                                                     <td>
                                                         <div class="qty mt-5">
-                                                            <input id="prod1" type="number" class="count" name="qty" onclick="productPrice(this.id)" value="0">
+                                                            <input id="prod1" type="number" class="count" name="qty" onclick="productPrice(this.id); showDialogbox(this.id);" value="0" min="0" max="2">
                                                         </div>
+                                                        <dialog id="myFirstDialog" style="width:50%;background-color:#F4FFEF;border:1px dotted black;">  
+                                                            <p><q>Can not add more to cart in current order.   
+                                                            </q></p>  
+                                                            <button id="hide">OK</button>  
+                                                        </dialog>
+                                                        
                                                     </td>
                                                     <td>
                                                         Total Price: $<output type="number" value ="0" id="ProdPrice1" Size=8>
                                                     </td>                                                    
                                                 </tr>
                                                 <tr>
-                                                    <td><img src="img/product/1.jpg" alt="" /></td>
+                                                    <td><img src="img/product/2.jpg" alt="" /></td>
                                                     <td>
                                                         <h3>1l Milk</h3>
                                                         <p id="price2">Price: $2</p>
                                                     </td>
                                                     <td>
                                                         <div class="qty mt-5">
-                                                            <input id="prod2" type="number" class="count" name="qty" onclick="productPrice(this.id)" value="0">
+                                                            <input id="prod2" type="number" class="count" name="qty" onclick="productPrice(this.id); showDialogbox(this.id);" value="0" min="0" max="2">
                                                         </div>
+                                                        
                                                     </td>
                                                     <td>
                                                         Total price: $<output type="number" value ="0" id="ProdPrice2" Size=8>
                                                     </td>                                                    
                                                 </tr>
                                                 <tr>
-                                                    <td><img src="img/product/1.jpg" alt="" /></td>
+                                                    <td><img src="img/product/3.jpg" alt="" /></td>
                                                     <td>
                                                         <h3>Brown Bread</h3>
                                                         <p id="price3">Price: $2</p>
                                                     </td>
                                                     <td>
                                                         <div class="qty mt-5">
-                                                            <input type="number" class="count" name="qty" onclick="productPrice(this.id)" value="0" id="prod3">
-                                                        </div>
+                                                            <input type="number" class="count" name="qty" onclick="productPrice(this.id); showDialogbox(this.id);" value="0" id="prod3" min="0" max="2">
+                                                        </div> 
                                                     </td>
                                                     <td>
                                                         Total price: $<output type="number" value ="0" id="ProdPrice3" Size=8>
                                                     </td>                                                    
                                                 </tr>
                                                 <tr>
-                                                    <td><img src="img/product/1.jpg" alt="" /></td>
+                                                    <td><img src="img/product/4.jpg" alt="" /></td>
                                                     <td>
                                                         <h3>Eggs 12pcs</h3>
                                                         <p id="price4">Price: $5</p>
                                                     </td>
                                                     <td>
                                                         <div class="qty mt-5">
-                                                            <input type="number" class="count" name="qty" onclick="productPrice(this.id)" value="0" id="prod4">
+                                                            <input type="number" class="count" name="qty" onclick="productPrice(this.id); showDialogbox(this.id);" value="0" id="prod4" min="0" max="2">
                                                         </div>
+                                                         
                                                     </td>
                                                     <td>
                                                         Total price: $<output type="number" value ="0" id="ProdPrice4" Size=8>
@@ -956,7 +964,7 @@
                                                                 
                                 <h3>Order Details</h3>
                                 <section>
-                                    <div class="container" onloadstart="populateOrderSumm()">
+                                    <div class="container">
                                         <div class="row">
                                             <div class="col-xs-10">
                                                 <div class="invoice-title">
@@ -979,8 +987,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        
+                                        </div>                                        
                                         <div class="row">
                                             <div class="col-md-10">
                                                 <div class="panel panel-default">
@@ -1053,6 +1060,25 @@
                                                 </div>
                                             </div>
                                         </div>
+                                    </div>
+                                </section>
+                                <h3>Delivery Option</h3>
+                                <section>
+                                    <h3 class="product-cart-dn">Shopping</h3>
+                                    <div class="delivery-details">
+                                        <h3>Please select your preferred delivery option</h3>
+                                        <select id="hello-single" class="form-control" onchange="showDeliveryOption(this.id);">
+                                                <option value="">---- Select Delivery Time ----</option>
+                                                <option value="0">Self Pickup</option>
+                                                <option value="1" disabled="true" >10am-12pm</option>
+                                                <option value="2" disabled="true">2pm-4pm</option>
+                                                <option value="3" >6pm-8pm</option>
+                                                <option value="4" >After 10pm</option>
+                                        </select>
+                                        
+                                        <h4><output type="number" id="delopt" Size=8></output></h4>
+                                        
+                                        <button type="submit" class="btn btn-primary btn-block">Submit</button>
                                     </div>
                                 </section>
                                 <h3>Payment Details</h3>
@@ -1146,10 +1172,11 @@
                                     <div class="product-confarmation">
                                         <h2>Congratulations! Your Order is accepted.</h2>
                                         <p>Please click the button below to generate your qr code and get your time slot.</p>
-                                        <button class="btn btn-primary m-y" onclick="generateBarCode()">Generate QR Code</button>
-                                        <p>PLease come to your selected store at 6pm 31st March 2020. The QR code will be valid for only 10 minutes.</p>
-                                        
+                                        <button class="btn btn-primary m-y" onclick="generateBarCode(); populateConfirmationMsg();">Generate QR Code</button>                                        
+                                        <h4><output type="number" id="confirmMsg" Size=8></output></h4>
                                         <img id='barcode' src="https://api.qrserver.com/v1/create-qr-code/?data=HelloWorld&amp;size=200x200" alt="" title="QR Code" width="100" height="100" />
+
+                                        
                                     </div>
                                 </section>
                             </div>
