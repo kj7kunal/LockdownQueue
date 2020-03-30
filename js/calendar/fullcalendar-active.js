@@ -32,70 +32,25 @@ $(function() {
     },
 		events: [
 			{
-				title: 'All Day Event',
-				start: YM + '-01',
-				color: '#e91e63'
-			},
-			{
-				title: 'Long Event',
-				start: YM + '-07',
-				end: YM + '-10',
-				color: '#59e0c5'
-			},
-			{
 				id: 999,
-				title: 'Repeating Event',
-				start: YM + '-09T16:00:00',
+				title: 'Pickup Scheduled',
+				start: YM + '-30T18:15:00',
+				end: YM + '-30T18:30:00',
 				color: '#FF5370'
 			},
 			{
 				id: 999,
-				title: 'Repeating Event',
-				start: YM + '-16T16:00:00',
+				title: 'Pickup Scheduled',
+				start: YM + '-10T10:45:00',
+				end: YM + '-10T11:00:00',
 				color: '#FF5370'
 			},
 			{
-				title: 'Conference',
-				start: YESTERDAY,
-				end: TOMORROW,
-				color: '#f3c30b'
-			},
-			{
-				title: 'Meeting',
-				start: TODAY + 'T10:30:00',
-				end: TODAY + 'T12:30:00',
-				color: '#1f2e86'
-			},
-			{
-				title: 'Lunch',
-				start: TODAY + 'T12:00:00',
-				color: '#0D4CFF'
-			},
-			{
-				title: 'Meeting',
-				start: TODAY + 'T14:30:00',
-				color: '#1f2e86'
-			},
-			{
-				title: 'Happy Hour',
-				start: TODAY + 'T17:30:00',
-				color: '#AA00FF'
-			},
-			{
-				title: 'Dinner',
-				start: TODAY + 'T20:00:00',
+				id: 999,
+				title: 'Delivery Scheduled',
+				start: YM + '-20T14:00:00',
+				end: YM + '-20T18:00:00',
 				color: '#00BCD4'
-			},
-			{
-				title: 'Birthday Party',
-				start: TOMORROW + 'T07:00:00',
-				color: '#FF5722'
-			},
-			{
-				title: 'Click for Google',
-				url: 'http://google.com/',
-				start: YM + '-28',
-				color: '#323232'
 			}
 		]
 	});
